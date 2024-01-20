@@ -62,3 +62,42 @@ footer {
   border: 1px solid #ccc;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
+
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-card {
+  width: 300px;
+  max-width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin: 12px;
+}
+
+.product-card > img {
+  width: 100%;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  margin-bottom: 12px;
+  height: 140px;
+}
+
+.product-card > .product-infor {
+  padding: 0 12px 12px;
+}
+
+.product-infor > h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.product-infor > p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 12px;
+  color: red;
+}

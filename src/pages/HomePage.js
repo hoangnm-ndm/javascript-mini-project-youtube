@@ -5,7 +5,9 @@ const HomePage = () => {
   return /*html*/ `
   ${Header()}
   <div class="container">
-  <h1>HomePage</h1>
+  <h1>Sản phẩm bán chạy</h1>
+  <div class="product-list">
+  </div>
   </div>
 
   ${Footer()}
