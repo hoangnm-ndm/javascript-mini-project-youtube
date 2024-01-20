@@ -1,9 +1,12 @@
 import showToast from "../utils/toastMessage";
-import { validLogin } from "../validations/auth.valid";
+import { validLogin } from "../valid/auth";
 
 function login() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
+  if (!email || !password) {
+    return;
+  }
 
   var userInfor = {
     email,

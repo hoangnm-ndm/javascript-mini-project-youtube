@@ -1,6 +1,11 @@
+import Layout from "../components/Layout";
+
 const SignInPage = () => {
   return /*html*/ `
-    <form action="">
+    ${Layout(
+      /*html*/
+      `
+      <form action="">
       <h1>Login</h1>
       <div class="mb-3">
         <label for="email" class="form-label">Email address</label>
@@ -20,6 +25,8 @@ const SignInPage = () => {
         Login
       </button>
     </form>
+      `
+    )}
   `;
 };
 
