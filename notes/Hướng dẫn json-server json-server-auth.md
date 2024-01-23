@@ -29,3 +29,9 @@
 users : []
 "
 ```
+
+## 8: Sửa packgage.json:
+
+```
+    "server": "json-server --watch db.json -m ./node_modules/json-server-auth --port 3000",
+```

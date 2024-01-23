@@ -4,8 +4,9 @@ import Header from "../components/Header";
 const HomePage = () => {
   return /*html*/ `
   ${Header()}
-  <div class="container">
-  <h1>HomePage</h1>
+  <div class="container mg-top-60 mg-bot-40">
+    <h1>Sản phẩm bán chạy</h1>
+    <div id="productList"></div>
   </div>
 
   ${Footer()}
