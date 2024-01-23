@@ -1,5 +1,9 @@
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+
 const SignUpPage = () => {
   return /*html*/ `
+  ${Header()}
     <form action="">
       <h1>Đăng ký tài khoản mới!</h1>
       <div class="mb-3">
@@ -23,8 +27,7 @@ const SignUpPage = () => {
 
       <button
         type="button"
-        id="btnRegister"
-        onclick="register()"
+        id="registerBtn"
         class="btn btn-primary w-100"
       >
         Đăng ký
@@ -32,6 +35,8 @@ const SignUpPage = () => {
 
       <p>Đã có tài khoản? Ấn <a href="/login">Đăng nhập</a>ngay!</p>
     </form>
+
+    ${Footer()}
   `;
 };
 

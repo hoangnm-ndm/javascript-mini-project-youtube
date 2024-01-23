@@ -1,10 +1,16 @@
+import "./src/styles/style.css";
+import "./src/styles/toast.css";
+import "boxicons";
 import AboutPage from "./src/pages/AboutPage";
 import HomePage from "./src/pages/HomePage";
 import NotFoundPage from "./src/pages/NotFoudPage";
-import "./style.css";
 import Navigo from "navigo";
 import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./node_modules/bootstrap/dist/js/bootstrap";
+import SignUpPage from "./src/pages/SignUpPage";
+import handleRegister from "./src/components/handleRegister";
+import SignInPage from "./src/pages/SignInPage";
+import handleLogin from "./src/components/handleLogin";
 
 const router = new Navigo("/", {
   linksSelector: "a",
@@ -42,5 +48,16 @@ router.on("/", () => render(app, HomePage), {
   },
 });
 router.on("/about", () => render(app, AboutPage));
+router.on("/register", () => render(app, SignUpPage), {
+  after() {
+    handleRegister();
+  },
+});
+
+router.on("/login", () => render(app, SignInPage), {
+  after() {
+    handleLogin();
+  },
+});
 router.notFound(() => render(app, NotFoundPage));
 router.resolve();

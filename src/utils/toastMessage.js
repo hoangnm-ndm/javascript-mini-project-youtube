@@ -5,8 +5,11 @@ document.body.appendChild(toastContainer);
 function showToast(message, duration = 5000, type = "success-m") {
   const toast = document.createElement("div");
   toast.classList.add("toast-m");
-  toast.innerHTML = `<div class="message-wrap-m">
-  <div class="message-m">${message}</div> <button class="closeBtn-m">x</button>
+  toast.innerHTML =
+    /*html*/
+    `<div class="message-wrap-m">
+    <div class="message-m">${message}</div> 
+    <button class="closeBtn-m">Hide</button>
   </div>`;
   toast.classList.add(`${type}-m`);
 
