@@ -1,3 +1,5 @@
+import "./node_modules/bootstrap/dist/css/bootstrap.css";
+import "./node_modules/bootstrap/dist/js/bootstrap";
 import "./style.css";
 import { render, router } from "./src/utils";
 import HomePage from "./src/pages/HomePage";
@@ -12,9 +14,9 @@ router.on("/", () => render(app, HomePage), {
     handlerProductList();
   },
 });
+
 router.on("/home", () => router.navigate("/"));
-router.on("/detail/:id/:code", (data) => render(app, () => DetailPage(data)));
+router.on("/detail/:id", (data) => render(app, () => DetailPage(data)));
 router.on("/about", () => render(app, AboutPage));
-//http:localhost:5173/about
 
 router.resolve();
