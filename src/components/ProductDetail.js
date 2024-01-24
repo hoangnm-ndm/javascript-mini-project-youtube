@@ -2,11 +2,13 @@ import instance from "../apis";
 
 const ProductDetail = (data) => {
   const id = data.id;
+  console.log(id);
   const productDetail = document.getElementById("productDetail");
   if (id) {
     instance
       .get(`/products/${id}`)
       .then(({ data }) => {
+        console.log(data);
         productDetail.innerHTML = /*html*/ `
           <div class="row">
             <div class="col-6">
