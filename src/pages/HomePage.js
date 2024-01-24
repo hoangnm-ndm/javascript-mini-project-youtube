@@ -6,7 +6,7 @@ const HomePage = () => {
   ${Header()}
   <div class="container">
     <h1>Sản phẩm bán chạy</h1>
-    <div class="product-list">
+    <div id="productList">
     </div>
   </div>
 

@@ -12,8 +12,21 @@ const register = () => {
   };
 
   if (validSignUp({ ...userInfor, confirmPass })) {
-    instance.post("/register", userInfor).then((res) => console.log(res));
-    showToast("Register successfully!", 5000, "success");
+    instance.post("/register", userInfor).then(({ data }) => {
+      // sessionStorage.setItem("user", JSON.stringify(data));
+      console.log(data);
+      // showToast(`Register successfully, ${data.user.email}`, 5000, "success");
+      // setTimeout(() => {
+      //   const confirmValue = confirm("Do you want to redirect to loging now?");
+      //   if (confirmValue) {
+      //     router.navigate("/login");
+      //   }
+      // }, 3000);
+    });
+    // .catch(({ response }) => {
+    //   console.log(response);
+    //   // showToast(response.data, 5000, "warning");
+    // });
   }
 };
 

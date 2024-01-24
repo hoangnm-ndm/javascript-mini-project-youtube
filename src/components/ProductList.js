@@ -1,15 +1,16 @@
+import instance from "../apis";
+
 const ProductList = () => {
   const productList = document.getElementById("productList");
   callAPI(productList);
 };
 
 function callAPI(nodeElement) {
-  fetch("http://localhost:3000/products")
-    .then((res) => res.json())
-    .then((data) => {
-      const contentHTML = data
-        .map(
-          (item) => `
+  instance.get("/products").then(({ data }) => {
+    console.log(data);
+    const contentHTML = data
+      .map(
+        (item) => `
           <div class="product-card">
             <img src="${item.thumbnail}" alt="${item.title}" />
             <div class="product-infor">
@@ -20,11 +21,11 @@ function callAPI(nodeElement) {
             </div>
           </div>
           `
-        )
-        .join("");
+      )
+      .join("");
 
-      nodeElement.innerHTML = contentHTML;
-    });
+    nodeElement.innerHTML = contentHTML;
+  });
 }
 
 export default ProductList;

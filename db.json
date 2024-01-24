@@ -4,6 +4,21 @@
       "email": "hoang@gmail.com",
       "password": "$2a$10$OiVrF0JGI4hQiO/kUYYTcOmbZ8nl6wWmbc86jLsjneGreoNA6mi92",
       "id": 1
+    },
+    {
+      "email": "wd18337@gmail.com",
+      "password": "$2a$10$CCV3r.MUZ3pxSkAqu9kt1efCxoquFZnhIrbu0OBv1j0ZRl35A8rbu",
+      "role": "admin",
+      "card": [],
+      "id": 2
+    },
+    {
+      "email": "hoang123@gmail.com",
+      "password": "$2a$10$AupzfK9D9TaTWiDIO1H62.rFXi8nXCZ..FxuCpbJ8Xy8NbzyQKaHK",
+      "gender": "male",
+      "role": "admin",
+      "card": [],
+      "id": 3
     }
   ],
   "products": [
