@@ -5,13 +5,9 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 62.5%;
   font-weight: 400;
   font-family: "Roboto", sans-serif;
-}
-
-img {
-  width: 100%;
 }
 
 ul,
@@ -25,14 +21,7 @@ header {
   height: 60px;
   border-bottom: 1px solid #ccc;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-}
-
-.mg-top-60 {
-  margin-top: 60px;
-}
-
-.mg-bot-40 {
-  margin-bottom: 4px;
+  margin-bottom: 24px;
 }
 
 .nav {
@@ -62,49 +51,6 @@ header {
   box-shadow: 0 0 6px rgba(0, 0, 255, 0.4);
 }
 
-#productList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 100px;
-}
-
-.product-card {
-  width: 300px;
-  max-width: 100%;
-  margin: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
-}
-
-.product-card > img {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  max-height: 160px;
-}
-
-.product-infor {
-  padding: 24px;
-}
-
-.product-infor > h3 {
-  font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 12px;
-}
-
-.product-infor > p {
-  font-size: 18px;
-  font-weight: 400;
-  margin-bottom: 12px;
-  color: red;
-}
-
-.product-infor > div {
-  margin-bottom: 12px;
-}
-
 footer {
   display: flex;
   justify-content: center;
@@ -114,7 +60,5 @@ footer {
   height: 40px;
   width: 100%;
   border: 1px solid #ccc;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: #fff;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }

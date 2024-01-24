@@ -1,47 +1,25 @@
+import "./src/styles/style.css";
+import "./src/styles/toast.css";
+import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./node_modules/bootstrap/dist/js/bootstrap";
 import AboutPage from "./src/pages/AboutPage";
 import HomePage from "./src/pages/HomePage";
 import NotFoundPage from "./src/pages/NotFoudPage";
-import "./style.css";
-import Navigo from "navigo";
-import "./node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "./node_modules/bootstrap/dist/js/bootstrap";
-
-const router = new Navigo("/", {
-  linksSelector: "a",
-});
-
+import SignUpPage from "./src/pages/SignUpPage";
+import handleRegister from "./src/components/handleRegister";
+import SignInPage from "./src/pages/SignInPage";
+import handleLogin from "./src/components/handleLogin";
+import ProductList from "./src/components/ProductList";
+import { render, router } from "./src/utils";
+import Dashboard from "./src/pages/admin/Dashboard";
+import DetailPage from "./src/pages/DetailPage";
+import ProductDetail from "./src/components/ProductDetail";
 const app = document.getElementById("app");
 
-const render = (position, content) => {
-  position.innerHTML = content();
-};
+const role = JSON.parse(sessionStorage.getItem("user"))?.user?.role;
+console.log(role);
 
-router.on("/", () => render(app, HomePage), {
-  after() {
-    const productList = document.getElementById("productList");
-    fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .then(({ products }) => {
-        const contentHTML = products
-          .map((item) => {
-            return /*html*/ `
-            <div class="product-card">
-              <img src="${item.thumbnail}" alt="${item.title}"/>
-              <div class="product-infor">
-                <h3>${item.title}</h3>
-                <p>Giá: ${item.price}</p>
-                <div>Mô tả: ${item.description}</div>
-                <a class="btn btn-primary" href="products/${item.id}">Xem chi tiết</a>
-              </div>
-            </div>
-          `;
-          })
-          .join("");
-
-        productList.innerHTML = contentHTML;
-      });
-  },
-});
+router.on("/", () => render(app, HomePage));
 router.on("/about", () => render(app, AboutPage));
 router.notFound(() => render(app, NotFoundPage));
 router.resolve();
