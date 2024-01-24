@@ -31,6 +31,11 @@
       "email": "hoang12121@gmail.com",
       "password": "$2a$10$.GhWYClAOyBnlWWWApbZaenmVUSsGqP3H5.P9GY96peoidM27QZeG",
       "id": 5
+    },
+    {
+      "email": "hoang1111@gmail.com",
+      "password": "$2a$10$DSgKORkSPJszrrexFuK1SualInj7nzWgN.KXf5VK7Xkt1nDLZTfP.",
+      "id": 6
     }
   ],
   "products": [
