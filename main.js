@@ -12,6 +12,8 @@ import handleLogin from "./src/components/handleLogin";
 import ProductList from "./src/components/ProductList";
 import { render, router } from "./src/utils";
 import Dashboard from "./src/pages/admin/Dashboard";
+import DetailPage from "./src/pages/DetailPage";
+import ProductDetail from "./src/components/ProductDetail";
 const app = document.getElementById("app");
 
 const role = JSON.parse(sessionStorage.getItem("user"))?.user?.role;
@@ -40,6 +42,11 @@ if (role === "admin") {
   router.on("/login", () => render(app, SignInPage), {
     after() {
       handleLogin();
+    },
+  });
+  router.on("/detail/:id", () => render(app, DetailPage), {
+    after({ data }) {
+      ProductDetail(data);
     },
   });
   router.notFound(() => render(app, NotFoundPage));

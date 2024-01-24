@@ -1,13 +1,12 @@
 import Header from "../components/Header";
 
-const AboutPage = () => {
+const DetailPage = (data) => {
   return /*html*/ `
   ${Header()}
-
   <div class="container">
-  <h1>AboutPage</h1>
-  </div>
+    <div id="productDetail"></div>
+  <div>
   `;
 };
 
-export default AboutPage;
+export default DetailPage;

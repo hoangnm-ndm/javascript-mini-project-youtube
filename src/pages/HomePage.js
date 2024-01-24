@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 const HomePage = () => {
@@ -9,8 +8,6 @@ const HomePage = () => {
     <div id="productList">
     </div>
   </div>
-
-  ${Footer()}
   `;
 };
 

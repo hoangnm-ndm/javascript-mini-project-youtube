@@ -60,6 +60,8 @@ footer {
   height: 40px;
   width: 100%;
   border: 1px solid #ccc;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.8);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }
 
@@ -69,7 +71,7 @@ footer {
   justify-content: center;
 }
 
-.product-card {
+#productList .product-card {
   width: 300px;
   max-width: 100%;
   border: 1px solid #ccc;
@@ -77,7 +79,7 @@ footer {
   margin: 12px;
 }
 
-.product-card > img {
+#productList .product-card > img {
   width: 100%;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
@@ -85,17 +87,17 @@ footer {
   height: 140px;
 }
 
-.product-card > .product-infor {
+#productList .product-card > .product-infor {
   padding: 0 12px 12px;
 }
 
-.product-infor > h3 {
+#productList .product-infor > h3 {
   font-size: 18px;
   font-weight: 800;
   margin-bottom: 12px;
 }
 
-.product-infor > p {
+#productList .product-infor > p {
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 12px;
@@ -110,4 +112,8 @@ form {
   border: 1px solid #ccc;
   border-radius: 6px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+#productDetail img {
+  width: 100%;
 }

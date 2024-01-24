@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 const SignInPage = () => {
@@ -24,8 +23,6 @@ const SignInPage = () => {
         Login
       </button>
     </form>
-
-    ${Footer()}
   `;
 };
 

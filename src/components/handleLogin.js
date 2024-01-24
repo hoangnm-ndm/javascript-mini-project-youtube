@@ -1,5 +1,6 @@
-import { router } from "json-server";
+// import instance from "../apis";
 import instance from "../apis";
+import { router } from "../utils";
 import showToast from "../utils/toastMessage";
 import { validLogin } from "../valid/auth";
 
@@ -15,15 +16,15 @@ const login = () => {
     instance
       .post("/login", userInfor)
       .then(({ data }) => {
-        // sessionStorage.setItem("user", JSON.stringify(data));
+        sessionStorage.setItem("user", JSON.stringify(data));
         console.log(data);
-        // showToast(`Login successfully, ${data.user.email}`, 5000, "success");
-        // setTimeout(() => {
-        //   const confirmValue = confirm("Do you want to redirect to home page?");
-        //   if (confirmValue) {
-        //     router.navigate("/");
-        //   }
-        // }, 3000);
+        showToast(`Login successfully, ${data.user.email}`, 5000, "success");
+        setTimeout(() => {
+          const confirmValue = confirm("Do you want to redirect to home page?");
+          if (confirmValue) {
+            router.navigate("/");
+          }
+        }, 3000);
       })
       .catch(({ response }) => {
         showToast(response.data, 5000, "warning");

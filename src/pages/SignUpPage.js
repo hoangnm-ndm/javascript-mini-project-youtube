@@ -1,4 +1,3 @@
-import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 const SignUpPage = () => {
@@ -36,7 +35,6 @@ const SignUpPage = () => {
       <p>Đã có tài khoản? Ấn <a href="/login">Đăng nhập</a>ngay!</p>
     </form>
 
-    ${Footer()}
   `;
 };
 
