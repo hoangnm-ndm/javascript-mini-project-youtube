@@ -14,6 +14,7 @@ import { render, router } from "./src/utils";
 import Dashboard from "./src/pages/admin/Dashboard";
 import DetailPage from "./src/pages/DetailPage";
 import ProductDetail from "./src/components/ProductDetail";
+import handleAdmin from "./src/components/handleAdmin";
 const app = document.getElementById("app");
 
 const role = JSON.parse(sessionStorage.getItem("user"))?.user?.role;
@@ -22,7 +23,7 @@ console.log(role);
 if (role === "admin") {
   router.on("/admin", () => render(app, Dashboard), {
     after() {
-      // handleAdmin();
+      handleAdmin();
     },
   });
   router.notFound(() => render(app, NotFoundPage));

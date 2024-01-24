@@ -16,18 +16,8 @@ const Dashboard = () => {
           <th scope="col">Action</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>San pham 1</td>
-          <td>200</td>
-          <td>Chua cap nhat</td>
-          <td>mo ta san pham</td>
-          <td>
-            <button class="btn btn-primary">Edit</button>
-            <button class="btn btn-danger">Delete</button>
-          </td>
-        </tr>
+      <tbody id="productList">
+        
       </tbody>
     </table>
   </div>
