@@ -16,47 +16,85 @@ import handleAdmin from "./src/components/handleAdmin";
 import handleProductList from "./src/components/handleProductList";
 import handleProductForm from "./src/components/handleProductForm";
 import handleProductDetail from "./src/components/handleProductDetail";
+import showToast from "./src/utils/toastMessage";
+import ProductForm from "./src/pages/admin/ProductForm";
+import CartPage from "./src/pages/CartPage";
+import handleCart from "./src/components/handleCart";
 const app = document.getElementById("app");
 
-const role = JSON.parse(sessionStorage.getItem("user"))?.user?.role;
-console.log(role);
+const logged = JSON.parse(sessionStorage.getItem("user"))?.user;
+console.log(logged);
 
-if (role === "admin") {
-  router.on("/admin", () => render(app, Dashboard), {
-    after() {
-      handleAdmin();
-    },
-  });
+router.on("/admin", () => render(app, Dashboard), {
+  before(done) {
+    console.log("before");
+    if (logged.role !== "admin") {
+      showToast("You are not admin", 5000);
+      router.navigate("/");
+    }
+    done();
+  },
+  after() {
+    console.log("after");
+    handleAdmin();
+  },
+});
 
-  router.on("/admin/add-new", () => render(app, ProductForm), {
-    after({ data }) {
-      handleProductForm(data);
-    },
-  });
-  router.notFound(() => render(app, NotFoundPage));
-  router.resolve();
-} else {
-  router.on("/", () => render(app, HomePage), {
-    after() {
-      handleProductList();
-    },
-  });
-  router.on("/about", () => render(app, AboutPage));
-  router.on("/register", () => render(app, SignUpPage), {
-    after() {
-      handleRegister();
-    },
-  });
-  router.on("/login", () => render(app, SignInPage), {
-    after() {
-      handleLogin();
-    },
-  });
-  router.on("/detail/:id", () => render(app, DetailPage), {
-    after({ data }) {
-      handleProductDetail(data);
-    },
-  });
-  router.notFound(() => render(app, NotFoundPage));
-  router.resolve();
-}
+router.on("/admin/add-new", () => render(app, ProductForm), {
+  before(done) {
+    console.log("before");
+    if (logged.role !== "admin") {
+      showToast("You are not admin", 5000);
+      router.navigate("/");
+    }
+    done();
+  },
+  after({ data }) {
+    handleProductForm(data);
+  },
+});
+
+router.on("/cart", () => render(app, CartPage), {
+  before(done) {
+    console.log("before");
+    if (!logged) {
+      showToast("You are not logged in", 5000);
+      router.navigate("/");
+    }
+    done();
+  },
+  after() {
+    handleCart();
+  },
+});
+router.on("/logout", () => {
+  sessionStorage.removeItem("user");
+  showToast("Logout successfully", 5000);
+  setTimeout(() => {
+    router.navigate("/");
+  }, 3000);
+});
+
+router.on("/", () => render(app, HomePage), {
+  after() {
+    handleProductList();
+  },
+});
+router.on("/about", () => render(app, AboutPage));
+router.on("/register", () => render(app, SignUpPage), {
+  after() {
+    handleRegister();
+  },
+});
+router.on("/login", () => render(app, SignInPage), {
+  after() {
+    handleLogin();
+  },
+});
+router.on("/detail/:id", () => render(app, DetailPage), {
+  after({ data }) {
+    handleProductDetail(data);
+  },
+});
+router.notFound(() => render(app, NotFoundPage));
+router.resolve();

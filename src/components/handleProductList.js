@@ -17,7 +17,8 @@ function callAPI(nodeElement) {
               <h2>${item.title}</h2>
               <div>Giá: ${item.price}</div>
               <p>Mô tả: ${item.description}</p>
-              <a href="detail/${item.id}">Xem chi tiết</a>
+              <button class="btn btn-warning" id="addCart">Thêm vào giỏ</button>
+              <a class="btn btn-primary" href="detail/${item.id}">Xem chi tiết</a>
             </div>
           </div>
           `

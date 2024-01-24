@@ -2,7 +2,7 @@ const toastContainer = document.createElement("div");
 toastContainer.classList.add("toast-container-m");
 document.body.appendChild(toastContainer);
 
-function showToast(message, duration = 5000, type = "success-m") {
+function showToast(message, duration = 5000, type = "success") {
   const toast = document.createElement("div");
   toast.classList.add("toast-m");
   toast.innerHTML =
@@ -11,7 +11,7 @@ function showToast(message, duration = 5000, type = "success-m") {
     <div class="message-m">${message}</div> 
     <button class="closeBtn-m">Hide</button>
   </div>`;
-  toast.classList.add(`${type}-m`);
+  toast.classList.add(`${type}`);
 
   toastContainer.appendChild(toast);
   function closeToast() {
@@ -29,9 +29,9 @@ function showToast(message, duration = 5000, type = "success-m") {
     toast.style.opacity = 1;
   }, 200);
 
-  setTimeout(() => {
-    closeToast();
-  }, duration);
+  // setTimeout(() => {
+  //   closeToast();
+  // }, duration);
 }
 
 export default showToast;

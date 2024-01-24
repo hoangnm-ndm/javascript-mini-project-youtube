@@ -1,20 +1,25 @@
 import instance from "../apis";
+import showToast from "../utils/toastMessage";
 
 const handleAdmin = () => {
   const productList = document.querySelector("#productList");
 
   const handleDelete = (productId) => {
-    // Call your API to delete the product
-    console.log(`Deleting product with ID: ${productId}`);
-    // After deletion, refresh the admin panel
-    // handleAdmin();
+    instance
+      .delete(`/products/${productId}`)
+      .then((res) => {
+        showToast("success", "Delete product successfully");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      })
+      .catch(() => {
+        showToast("error", "Delete product failed");
+      });
   };
 
   // Function to handle product editing
-  const handleEdit = (productId) => {
-    // Implement your edit logic here
-    console.log(`Editing product with ID: ${productId}`);
-  };
+  const handleEdit = (productId) => {};
 
   productList.addEventListener("click", (event) => {
     const target = event.target;
