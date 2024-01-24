@@ -9,12 +9,13 @@ import SignUpPage from "./src/pages/SignUpPage";
 import handleRegister from "./src/components/handleRegister";
 import SignInPage from "./src/pages/SignInPage";
 import handleLogin from "./src/components/handleLogin";
-import ProductList from "./src/components/ProductList";
 import { render, router } from "./src/utils";
 import Dashboard from "./src/pages/admin/Dashboard";
 import DetailPage from "./src/pages/DetailPage";
-import ProductDetail from "./src/components/ProductDetail";
 import handleAdmin from "./src/components/handleAdmin";
+import handleProductList from "./src/components/handleProductList";
+import handleProductForm from "./src/components/handleProductForm";
+import handleProductDetail from "./src/components/handleProductDetail";
 const app = document.getElementById("app");
 
 const role = JSON.parse(sessionStorage.getItem("user"))?.user?.role;
@@ -26,12 +27,18 @@ if (role === "admin") {
       handleAdmin();
     },
   });
+
+  router.on("/admin/add-new", () => render(app, ProductForm), {
+    after({ data }) {
+      handleProductForm(data);
+    },
+  });
   router.notFound(() => render(app, NotFoundPage));
   router.resolve();
 } else {
   router.on("/", () => render(app, HomePage), {
     after() {
-      ProductList();
+      handleProductList();
     },
   });
   router.on("/about", () => render(app, AboutPage));
@@ -47,7 +54,7 @@ if (role === "admin") {
   });
   router.on("/detail/:id", () => render(app, DetailPage), {
     after({ data }) {
-      ProductDetail(data);
+      handleProductDetail(data);
     },
   });
   router.notFound(() => render(app, NotFoundPage));

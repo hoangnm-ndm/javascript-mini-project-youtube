@@ -1,6 +1,6 @@
 import instance from "../apis";
 
-const ProductList = () => {
+const handleProductList = () => {
   const productList = document.getElementById("productList");
   callAPI(productList);
 };
@@ -28,4 +28,4 @@ function callAPI(nodeElement) {
   });
 }
 
-export default ProductList;
+export default handleProductList;

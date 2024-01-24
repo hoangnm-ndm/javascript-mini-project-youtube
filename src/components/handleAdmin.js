@@ -39,11 +39,15 @@ const handleAdmin = () => {
           <td>${product.id}</td>
           <td>${product.title}</td>
           <td>${product.price}</td>
-          <td>${product.thumbnail}</td>
+          <td><img width="100px" src="${product.thumbnail}" /></td>
           <td>${product.description}</td>
           <td>
-          <button class="btn btn-warning btn-edit" data-product-id="${product.id}">Edit</button>
-        <button class="btn btn-danger btn-delete" data-product-id="${product.id}">Delete</button>
+          <button class="btn btn-warning btn-edit" data-product-id="${
+            product.id
+          }">Edit</button> ${" "}
+        <button class="btn btn-danger btn-delete" data-product-id="${
+          product.id
+        }">Delete</button>
           </td>
         </tr>
         `;
@@ -51,6 +55,7 @@ const handleAdmin = () => {
       .join("");
 
     productList.innerHTML = /*html*/ `
+    
     <table class="table table-striped">
       <thead>
         <tr>

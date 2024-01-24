@@ -1,6 +1,6 @@
 import instance from "../apis";
 
-const ProductDetail = (data) => {
+const handleProductDetail = (data) => {
   const id = data.id;
   console.log(id);
   const productDetail = document.getElementById("productDetail");
@@ -36,4 +36,4 @@ const ProductDetail = (data) => {
   }
 };
 
-export default ProductDetail;
+export default handleProductDetail;
