@@ -40,7 +40,21 @@ router.on("/admin", () => render(app, Dashboard), {
   },
 });
 
-router.on("/admin/add-new", () => render(app, ProductForm), {
+router.on("/admin/add", () => render(app, ProductForm), {
+  before(done) {
+    console.log("before");
+    if (logged.role !== "admin") {
+      showToast("You are not admin", 5000);
+      router.navigate("/");
+    }
+    done();
+  },
+  after({ data }) {
+    handleProductForm(data);
+  },
+});
+
+router.on("/admin/add/:id", () => render(app, ProductForm), {
   before(done) {
     console.log("before");
     if (logged.role !== "admin") {
@@ -55,14 +69,6 @@ router.on("/admin/add-new", () => render(app, ProductForm), {
 });
 
 router.on("/cart", () => render(app, CartPage), {
-  before(done) {
-    console.log("before");
-    if (!logged) {
-      showToast("You are not logged in", 5000);
-      router.navigate("/");
-    }
-    done();
-  },
   after() {
     handleCart();
   },

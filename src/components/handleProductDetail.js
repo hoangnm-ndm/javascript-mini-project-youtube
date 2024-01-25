@@ -21,7 +21,7 @@ const handleProductDetail = (data) => {
                 <p>Sẵn hàng: ${data.stock}</p>
                 <p>Đánh giá: ${data.rating}</p>
                 <p>Mô tả: ${data.description}</p>
-                <a href="/" class="btn btn-danger">Thêm vào giỏ hàng</a>
+                <button id="addCart" class="btn btn-warning">Thêm vào giỏ hàng</button>
               </div>
             </div>
           </div>

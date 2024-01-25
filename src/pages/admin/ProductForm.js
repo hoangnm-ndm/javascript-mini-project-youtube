@@ -1,4 +1,4 @@
-const ProductForm = (data) => {
+const ProductForm = () => {
   return `ComponentContent`;
 };
 
