@@ -29,9 +29,9 @@ function showToast(message, duration = 5000, type = "success") {
     toast.style.opacity = 1;
   }, 200);
 
-  // setTimeout(() => {
-  //   closeToast();
-  // }, duration);
+  setTimeout(() => {
+    closeToast();
+  }, duration);
 }
 
 export default showToast;

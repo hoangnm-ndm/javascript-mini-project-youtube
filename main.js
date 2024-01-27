@@ -20,53 +20,56 @@ import showToast from "./src/utils/toastMessage";
 import ProductForm from "./src/pages/admin/ProductForm";
 import CartPage from "./src/pages/CartPage";
 import handleCart from "./src/components/handleCart";
+import { checkAdmin } from "./src/utils/checkPermission";
 const app = document.getElementById("app");
 
-const logged = JSON.parse(sessionStorage.getItem("user"))?.user;
-console.log(logged);
-
-router.on("/admin", () => render(app, Dashboard), {
-  before(done) {
-    console.log("before");
-    if (logged.role !== "admin") {
-      showToast("You are not admin", 5000);
-      router.navigate("/");
+router.on(
+  "/admin",
+  () => {
+    if (checkAdmin()) {
+      render(app, Dashboard);
+    } else {
+      window.location.href = "/";
     }
-    done();
   },
-  after() {
-    console.log("after");
-    handleAdmin();
-  },
-});
+  {
+    after() {
+      handleAdmin();
+    },
+  }
+);
 
-router.on("/admin/add", () => render(app, ProductForm), {
-  before(done) {
-    console.log("before");
-    if (logged.role !== "admin") {
-      showToast("You are not admin", 5000);
-      router.navigate("/");
+router.on(
+  "/admin/add",
+  () => {
+    if (checkAdmin()) {
+      render(app, ProductForm);
+    } else {
+      window.location.href = "/";
     }
-    done();
   },
-  after({ data }) {
-    handleProductForm(data);
-  },
-});
+  {
+    after({ data }) {
+      handleProductForm(data);
+    },
+  }
+);
 
-router.on("/admin/add/:id", () => render(app, ProductForm), {
-  before(done) {
-    console.log("before");
-    if (logged.role !== "admin") {
-      showToast("You are not admin", 5000);
-      router.navigate("/");
+router.on(
+  "/admin/add/:id",
+  () => {
+    if (checkAdmin()) {
+      render(app, ProductForm);
+    } else {
+      window.location.href = "/";
     }
-    done();
   },
-  after({ data }) {
-    handleProductForm(data);
-  },
-});
+  {
+    after({ data }) {
+      handleProductForm(data);
+    },
+  }
+);
 
 router.on("/cart", () => render(app, CartPage), {
   after() {

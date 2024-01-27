@@ -1,4 +1,5 @@
 import instance from "../apis";
+import { checkAdmin } from "../utils/checkPermission";
 import showToast from "../utils/toastMessage";
 
 const handleAdmin = () => {
@@ -79,9 +80,6 @@ const handleAdmin = () => {
     
     `;
   });
-
-  const hello = document.getElementById("hello");
-  console.log(hello);
 };
 
 export default handleAdmin;

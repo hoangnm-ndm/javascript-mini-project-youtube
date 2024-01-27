@@ -16,8 +16,6 @@ const register = () => {
     instance
       .post("/register", userInfor)
       .then(({ data }) => {
-        sessionStorage.setItem("user", JSON.stringify(data));
-        console.log(data);
         showToast(`Register successfully, ${data.user.email}`, 5000, "success");
         setTimeout(() => {
           const confirmValue = confirm(
