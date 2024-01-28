@@ -25,6 +25,8 @@ header {
   height: 60px;
   border-bottom: 1px solid #ccc;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
 }
 
 .mg-top-60 {
@@ -116,5 +118,15 @@ footer {
   border: 1px solid #ccc;
   background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+form {
+  width: 400px;
+  max-width: 100%;
+  margin: 100px auto 0;
+  padding: 24px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
 }

@@ -5,6 +5,24 @@
       "password": "$2a$10$pkIAoK5SKSHLMOYsENBQCO1k95I.79k8PlEYZPs5iwbnsttvS.BUG",
       "username": "hoangnm.bg",
       "id": 1
+    },
+    {
+      "email": "hoang000@gmail.com",
+      "password": "$2a$10$tr50hJ0WjR9kac4kNcMdneAZ4wqeIl1VqelUQ6GiiBZZWqeM6hN2y",
+      "id": 2
+    },
+    {
+      "email": "locfuho@gmail.com",
+      "password": "$2a$10$jJwWkgnJvBlnWl2wU6/RkuaderbMRlJS8Kl8s7aHWIXLCa0XEcpO6",
+      "id": 3
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$cwQryGbE69I7gDvcxaAK2OqQMvnmD5MuRkQzBoTCV52GfilV8NIsa",
+      "role": "member",
+      "address": "",
+      "phoneNumber": "",
+      "id": 4
     }
   ],
   "products": [
@@ -56,9 +74,7 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg",
-      "images": [
-        "https://cdn.dummyjson.com/product-images/3/1.jpg"
-      ]
+      "images": ["https://cdn.dummyjson.com/product-images/3/1.jpg"]
     },
     {
       "id": 4,
