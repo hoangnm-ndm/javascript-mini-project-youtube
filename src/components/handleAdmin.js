@@ -1,10 +1,10 @@
-import { router } from "json-server";
 import instance from "../apis";
+import { router } from "../utils";
 import showToast from "../utils/toastMessage";
 
 const handleAdmin = () => {
   const productList = document.querySelector("#productList");
-  const addNew = document.querySelector("#addNew");
+  const addNew = document.getElementById("addNew");
   addNew.addEventListener("click", () => {
     router.navigate("/admin/add");
   });
